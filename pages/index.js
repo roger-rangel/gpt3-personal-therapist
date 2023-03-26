@@ -1,21 +1,43 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 
 const Home = () => {
+  const [userInput, setUserInput] = useState('');
+
+  const onUserChangedText = (event) => {
+    setUserInput(event.target.value);
+  };
+
   return (
     <div className="root">
       <Head>
-        <title>GPT-3 Therapist</title>
+        <title>AI Healing Vibes</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>AI Therapist</h1>
+            <h1>AI Healing Vibes</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Are you feeling sad today? Talk to one of our experts</h2>
+            <h2>Welcome to the Post-Breakup Recovery Revolution with AI</h2>
           </div>
+        </div>
+        <div className="prompt-container">
+          <textarea 
+            placeholder="start typing here" 
+            className="prompt-box"
+            value={userInput}
+            onChange={onUserChangedText}
+          />
+        </div>
+        <div className="prompt-buttons">
+          <a className="generate-button" onClick={null}> 
+            <div className="generate">
+              <p>Generate</p>
+            </div>
+          </a>
         </div>
       </div>
       <div className="badge-container grow">
